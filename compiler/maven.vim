@@ -39,7 +39,11 @@ function JUnitOne()
     if s:pos != -1
         let s:clazz = strpart(s:abspath, s:pos + strlen(s:needle))
         "echo 'make test -DfailIfNoTests=false -Dtest=' . s:clazz . '#' . s:casename
-        let s:code = 'make test -DfailIfNoTests=false -Dtest=' . s:clazz . '\#' . s:casename
+        if strridx(s:clazz, s:casename) + strlen(s:casename) == strlen(s:clazz)
+            let s:code = 'make test -DfailIfNoTests=false -Dtest=' . s:clazz
+        else
+            let s:code = 'make test -DfailIfNoTests=false -Dtest=' . s:clazz . '\#' . s:casename
+        endif
         execute s:code
     endif
 endfunction
