@@ -30,7 +30,7 @@ CompilerSet errorformat=
 " default make
 CompilerSet makeprg=mvn
 
-function JUnitOne()
+function! JUnitOne()
     let s:needle = 'src.test.java.'
     let s:casename = expand('<cword>')
     let s:abspath = expand('%:p:r')
