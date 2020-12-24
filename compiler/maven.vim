@@ -27,11 +27,8 @@ CompilerSet errorformat=
             \%-Z[%[A-Z]%#]\ %p^,
             \%C[%[A-Z]%#]\ %#%m
 
-if filereadable(findfile('mvnw', '.;'))
-    CompilerSet makeprg=mvnw
-else
-    CompilerSet makeprg=mvn
-endif
+" default compiler
+CompilerSet makeprg=mvn
 
 if !exists('*JUnitOne')
     function JUnitOne()
