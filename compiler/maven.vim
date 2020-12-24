@@ -27,7 +27,7 @@ CompilerSet errorformat=
             \%-Z[%[A-Z]%#]\ %p^,
             \%C[%[A-Z]%#]\ %#%m
 
-if findfile('mvnw', '.;')
+if filereadable(findfile('mvnw', '.;'))
     CompilerSet makeprg=mvnw
 else
     CompilerSet makeprg=mvn
