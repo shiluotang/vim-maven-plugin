@@ -27,8 +27,11 @@ CompilerSet errorformat=
             \%-Z[%[A-Z]%#]\ %p^,
             \%C[%[A-Z]%#]\ %#%m
 
-" default make
-CompilerSet makeprg=mvn
+if findfile('mvnw', '.;', -1)
+    CompilerSet makeprg=mvnw
+else
+    CompilerSet makeprg=mvn
+endif
 
 if !exists('*JUnitOne')
     function JUnitOne()
