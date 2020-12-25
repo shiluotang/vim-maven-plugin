@@ -27,8 +27,17 @@ CompilerSet errorformat=
             \%-Z[%[A-Z]%#]\ %p^,
             \%C[%[A-Z]%#]\ %#%m
 
-" default make
-CompilerSet makeprg=mvn
+if has('win32')
+    if filereadable(findfile('mvnw.cmd', '.;'))
+        CompilerSet makeprg=mvnw
+    else
+        CompilerSet makeprg=mvn
+    endif
+elseif filereadable(findfile('mvnw', '.;'))
+    CompilerSet makeprg=./mvnw
+else
+    CompilerSet makeprg=mvn
+endif
 
 if !exists('*JUnitOne')
     function JUnitOne()
