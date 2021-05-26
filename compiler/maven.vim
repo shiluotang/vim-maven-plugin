@@ -29,12 +29,12 @@ CompilerSet errorformat=
 
 if has('win32')
     if filereadable(findfile('mvnw.cmd', '.;'))
-        CompilerSet makeprg=mvnw
+        execute 'CompilerSet makeprg=' . fnamemodify(findfile('mvnw.cmd', '.;'), ':~')
     else
         CompilerSet makeprg=mvn
     endif
 elseif filereadable(findfile('mvnw', '.;'))
-    CompilerSet makeprg=./mvnw
+    execute 'CompilerSet makeprg=' . fnamemodify(findfile('mvnw', '.;'), ':~')
 else
     CompilerSet makeprg=mvn
 endif
